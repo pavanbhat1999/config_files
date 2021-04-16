@@ -55,12 +55,12 @@ volume master {
 
 battery 0 {
 	last_full_capacity = true
-        format = "<span color='#a3be8c'>  %status %percentage </span>"
+        format = "<span color='#a3be8c'> %status %percentage %remaining %emptytime </span>"
         format_down = "No Battery"
-        status_chr = "Charging"
-        status_bat = "Battery"
-        status_unk = "Unknown"
-        status_full = "Charged"
+        status_chr = "⚡Charging"
+        status_bat = "🔋 BAT"
+        status_unk = "? Unknown"
+        status_full = "☻ FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }

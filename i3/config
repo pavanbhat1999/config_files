@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:System San Francisco 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -24,7 +24,7 @@ font pango:monospace 10
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/root99/Wall/sword.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -107,10 +107,10 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
-set $ws2 "2:"
+set $ws2 "2:  "
 set $ws3 "3:File"
 set $ws4 "4:Code"
-set $ws5 "5"
+set $ws5 "5:Other"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -120,9 +120,9 @@ set $ws10 "10"
 # switch to workspace
 bindsym $mod+1 workspace  $ws1
 bindsym $mod+2 workspace  $ws2
-bindsym $mod+3 workspace  $ws3;exec thunar
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
+bindsym $mod+3 workspace  $ws3
+bindsym $mod+4 workspace  $ws4
+bindsym $mod+5 workspace  $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
@@ -147,7 +147,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+Ctrl+e exec i3-msg exit
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -177,7 +177,8 @@ bindsym $mod+shift+f exec firefox
 #starting code
 bindsym $mod+ctrl+shift+c exec code
 #start wallpaer
-exec feh --randomize --bg-fill /home/root99/Downloads/Wall
+#exec feh --randomize --bg-fill /home/root99/Downloads/Wall
+exec --no-startup-id ./new_try.sh
 exec --no-startup-id picom -CGb
 #starting devilspie
 exec --no-startup-id devilspie
@@ -194,6 +195,8 @@ exec --no-startup-id xinput set-prop 16 366 1
 exec --no-startup-id xinput set-prop 14 364 1
 #start num touchpad 
 exec  setxkbmap -option keypad:pointerkeys
+#restaring the system 
+bindsym $mod+shift+ctrl+r exec shutdown -r now
 #resize mode
 bindsym $mod+r mode "resize"
 
@@ -205,6 +208,6 @@ status_command /usr/local/bin/net-speed-and-brightness.sh
 position bottom
 output primary
 tray_output none
-font pango:DejaVu Sans Mono 12
+font pango:System San Fracisco 12
 #separator_symbol |
 }
